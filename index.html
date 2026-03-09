@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="logo"><a href="#">Portfo<span>lio.</span></a></div>
+            <ul class="menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+<section class="home-terminal" id="home">
+    <div class="max-width">
+        <div class="terminal-container">
+            <div class="hero-info">
+                <span class="status-pill">● Available for Work</span>
+                <h1>Aditya <br><span>Nair</span></h1>
+                <p>Data Scientist | AI Engineer</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn-main">View System Portfolio</a>
+                </div>
+            </div>
+
+          <div class="terminal-window">
+                <div class="terminal-header">
+                    <div class="dots">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                    </div>
+                    <div class="terminal-title"> Lets Connect</div>
+                </div>
+                <div class="terminal-body" id="terminal-text">
+                    </div>
+            </div>
+        </div>
+    </div>
+    
+</section>
+
+<section class="about-interactive" id="about">
+    <div class="max-width">
+        <h2 class="title">System Overview</h2>
+        <div class="about-container">
+            <div class="about-card">
+                <div class="card-inner">
+                    <img src="myimage.jpg" alt="Profile">
+                    <div class="card-info">
+                        <h3>Aditya Nair</h3>
+                        <p>Data Scientist</p>
+                        <div class="social-row">
+                            <a href="https://github.com/adityanairrr" target="_blank"><i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/aditya-nair-489201245" target="_blank"><i class="fab fa-linkedin"></i>
+                            </a>
+                        </div>
+                        <div class="resume-button-container">
+                            <a href="C:\Users\Hp\OneDrive\Documents\Portfolio\Aditya-Nair -Resume(DS).pdf" target="_blank" download="Aditya_Nair_Resume" class="resume-btn">
+                                Download Resume <i class="fas fa-file-download"></i>
+    </a>
+</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="about-tabs">
+                <div class="tab-btns">
+                    <button class="t-btn active" onclick="openTab('edu')">Education</button>
+                    <button class="t-btn" onclick="openTab('exp')">Experience</button>
+            
+                </div>
+                
+                <div id="edu" class="tab-content active">
+                    <div class="edu-item">
+                        <h4>MBA in Data Science</h4>
+                        <span class="sub">Manipal University | 2025 — 2027 (Expected)</span>
+                    </div>
+                    <div class="edu-item" style="margin-top: 15px;">
+                        <h4>B.Tech in Computer Engineering</h4>
+                        <span class="sub">Swarnim Startup & Innovation University | 2020 — 2024</span>
+                        <p style="color: crimson; font-size: 14px; margin-top: 5px;"></p>
+                    </div>
+                </div>
+            
+                
+
+                <div id="exp" class="tab-content">
+                
+                   
+                </div>
+
+            
+    </div>
+</section>
+<section class="skills-modern" id="skills">
+    <div class="max-width">
+        <h2 class="title">Technical Engine</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <i class="fas fa-code"></i>
+                <h3>Languages and Tools</h3>
+                <div class="skill-tags">
+                    <span>Python</span>
+                    <span>SQL</span>
+                    <span>Excel</span>
+                    <span>Power BI</span>
+                    <span>GIT</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <i class="fas fa-code"></i>
+                <h3>Machine Learning</h3>
+                <div class="skill-tags">
+                    <span>Scikit-Learn</span>
+                    <span>Numpy</span>
+                    <span>Pandas</span>
+                    <span>Matplotlib/Seaborn</span>
+                    <span>Regression/Classification</span>
+                    <span>Decision Trees</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <i class="fas fa-code"></i>
+                <h3>Artificial Intelligence</h3>
+                <div class="skill-tags">
+                    <span>Neural Networks</span>
+                    <span>PyTorch</span>
+                    <span>NLP</span>
+                    
+            </div>
+        </div>
+    </div>
+</section>
+ <section class="projects-modern" id="projects">
+    <div class="max-width">
+        <h2 class="title">Project Repository</h2>
+        <div class="projects-grid">
+            
+            <div class="project-node">
+                <div class="node-header">
+                    <i class="fas fa-brain"></i>
+                    <span class="node-tag">Machine Learning</span>
+                </div>
+                <div class="node-body">
+                    <h3>Obesity Level Prediction</h3>
+                    <p>Developed a Decision Tree Classifier using Scikit-Learn to predict health risk categories based on 16 lifestyle and physical attributes..</p>
+                    <div class="tech-stack">
+                        <span>Python</span> <span>Numpy</span> <span>Pandas</span> 
+                    </div>
+                </div>
+                <div class="node-footer multi-links">
+                    <a href="https://github.com/adityanairrr/Machine-Learning-Projects/tree/main/Decision%20Trees/Obesity%20Check" target="_blank" class="node-link source">
+                        <i class="fab fa-github"></i> Source Code
+                    </a>
+                    <a href=" https://obesity-predictor-rzm7.onrender.com" target="_blank" class="node-link live">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+            </div>
+
+            <div class="project-node">
+                <div class="node-header">
+                    <i class="fas fa-database"></i>
+                    <span class="node-tag">Data Analysis</span>
+                </div>
+                <div class="node-body">
+                    <h3>IPL Analysis</h3>
+                    <p>Developed a Python pipeline using Pandas to transform raw ball-by-ball datasets into situational metrics and 
+                        developed an interactive Power BI dashboard designed for a Broadcast Analyst’s perspective.</p>
+                    <div class="tech-stack">
+                        <span>Pandas</span> <span>SQL</span> <span>Power BI</span>
+                    </div>
+                </div>
+                <div class="node-footer">
+                    <a href="https://github.com/adityanairrr/Data-Analysis-Projects/tree/main/IPL" target="_blank" class="node-link">View Analysis
+                        <i class="fas fa-external-link-alt"></i></a>
+                </div>
+                </div>
+            </div>
+
+            <div class="project-node">
+                <div class="node-header">
+                    <i class="fas fa-chart-line"></i>
+                    <span class="node-tag">Machine Learning</span>
+                </div>
+                <div class="node-body">
+                    <h3>Bank Loan Eligibility Prediction</h3>
+                    <p>Developed a SVM Based Model that takes Customer Data and Predicts Loan Eligibility.</p>
+                    <div class="tech-stack">
+                        <span>Pandas</span> <span>SVM</span> <span>NumPy</span>
+                    </div>
+                </div>
+                <div class="node-footer">
+                    <a href="https://github.com/adityanairrr/Machine-Learning-Projects/tree/main/SVM/Bank%20Loan%20Possibility" target="_blank" class="node-link source">
+                        <i class="fab fa-github"></i> Source Code</a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<section class="contact-modern" id="contact">
+    <div class="max-width">
+        <h2 class="title">Get In Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <div class="info-head">
+                    <h3>Let's Connect</h3>
+                    <p>I'm currently open to data Science and ML/AI opportunities. Feel free to reach out!</p>
+                </div>
+                
+                <div class="info-list">
+                    <div class="info-item">
+                        <i class="fas fa-envelope"></i>
+                        <div class="details">
+                            <span>Email</span>
+                            <p>nairaditya74@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div class="details">
+                            <span>LinkedIn</span>
+                            <p>Aditya Nair</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div class="details">
+                            <span>Location</span>
+                            <p>Ahmedabad, India</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="contact-form-box">
+                <form action="https://formspree.io/f/xwvrvqdr" method="POST">
+                    <div class="form-group">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="subject" placeholder="Subject" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea name="message" rows="5" placeholder="Your Message..." required></textarea>
+                    </div>
+                    <button type="submit" class="send-btn">
+                        Send Message <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
