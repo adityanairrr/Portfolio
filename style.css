@@ -1,3 +1,13 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* This kills the annoying side-scroll */
+}
 /* Custom Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
@@ -685,4 +695,38 @@ section {
     height: 300px;
     overflow-y: hidden;
     line-height: 1.6;
+}
+/* --- MOBILE RESPONSIVENESS --- */
+@media (max-width: 768px) {
+    /* 1. Make the Navbar text smaller */
+    .navbar .logo a {
+        font-size: 25px;
+    }
+
+    /* 2. Stack the About section (Image on top, Text below) */
+    .about-content {
+        flex-direction: column;
+    }
+
+    /* 3. Make Project Nodes full width instead of side-by-side */
+    .project-grid {
+        grid-template-columns: 100%;
+        padding: 0 20px;
+    }
+
+    /* 4. Fix the Tabs (Education/Experience) */
+    .tab-btns {
+        flex-wrap: wrap; /* Buttons will wrap to next line if needed */
+        justify-content: center;
+    }
+
+    .t-btn {
+        width: 100%; /* Full width buttons for easy thumb tapping */
+        margin-bottom: 10px;
+    }
+
+    /* 5. Adjust Section Padding */
+    section {
+        padding: 60px 20px;
+    }
 }
