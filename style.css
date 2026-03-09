@@ -729,4 +729,16 @@ section {
     section {
         padding: 60px 20px;
     }
+    /* Stack the Hero/About buttons vertically */
+.btns, .hero-btns, .cv-btns {
+    display: flex;
+    flex-direction: column; /* Stacks them */
+    gap: 15px;             /* Adds space between them */
+    align-items: center;
+}
+
+.t-btn, .btn-link {
+    width: 80%;            /* Makes buttons wider and easier to tap */
+    text-align: center;
+}
 }
