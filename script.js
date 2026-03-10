@@ -55,3 +55,50 @@ function openTab(tabId) {
     document.getElementById(tabId).classList.add('active');
     event.currentTarget.classList.add('active');
 }
+
+// last add 
+$(document).ready(function(){
+    // 1. Sticky navbar logic
+    $(window).scroll(function(){
+        if(this.scrollY > 20){
+            $('.navbar').addClass("sticky");
+        }else{
+            $('.navbar').removeClass("sticky");
+        }
+    });
+
+    // 2. Mobile Menu Toggle logic
+    $('.menu-btn').click(function(){
+        $('.navbar .menu').toggleClass("active");
+        $('.menu-btn i').toggleClass("active");
+    });
+
+    // 3. Close menu when clicking a link
+    $('.navbar .menu li a').click(function(){
+        $('.navbar .menu').removeClass("active");
+        $('.menu-btn i').removeClass("active");
+    });
+});
+// This script doesn't need jQuery to run
+window.addEventListener('DOMContentLoaded', () => {
+    const menuBtn = document.querySelector('.menu-btn');
+    const menu = document.querySelector('.navbar .menu');
+    const icon = document.querySelector('.menu-btn i');
+
+    if (menuBtn) {
+        menuBtn.addEventListener('click', () => {
+            menu.classList.toggle("active");
+            icon.classList.toggle("active");
+            console.log("Mobile menu toggled");
+        });
+    }
+
+    // Close menu when clicking any link
+    const menuLinks = document.querySelectorAll('.navbar .menu li a');
+    menuLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            menu.classList.remove("active");
+            icon.classList.remove("active");
+        });
+    });
+});

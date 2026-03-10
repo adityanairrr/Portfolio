@@ -1,15 +1,5 @@
-* {
-    box-sizing: border-box;
-}
-
-html, body {
-    width: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* This kills the annoying side-scroll */
-}
-/* Custom Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+/* --- 1. GLOBAL SETTINGS --- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
 
 * {
     margin: 0;
@@ -18,9 +8,17 @@ html, body {
     font-family: 'Poppins', sans-serif;
 }
 
-body {
+html, body {
+    width: 100%;
+    overflow-x: hidden;
     background: #111;
     color: #fff;
+    scroll-behavior: smooth;
+}
+
+section {
+    padding: 100px 0;
+    scroll-margin-top: 90px;
 }
 
 .max-width {
@@ -29,24 +27,26 @@ body {
     margin: auto;
 }
 
-/* Navbar */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* --- 2. NAVIGATION BAR --- */
 .navbar {
     position: fixed;
     width: 100%;
-    z-index: 999; /* Higher number keeps it on top of images/cards */
+    z-index: 999;
     padding: 20px 0;
+    background: #111;
     font-family: 'Ubuntu', sans-serif;
     transition: all 0.3s ease;
-    
-    /* ADD THESE LINES */
-    background: #111; /* Or your specific dark background color */
-    border-bottom: 1px solid rgba(220, 20, 60, 0.2); /* Subtle crimson line */
+    border-bottom: 1px solid rgba(220, 20, 60, 0.2);
 }
 
-/* Ensure the text doesn't overlap on scroll */
 .navbar.sticky {
     padding: 15px 0;
-    background: crimson; /* Change color when scrolling if you have a sticky script */
+    background: crimson;
 }
 
 .navbar .max-width {
@@ -62,13 +62,11 @@ body {
     text-decoration: none;
 }
 
-.navbar .logo a span {
-    color: crimson;
-}
+.navbar .logo a span { color: crimson; }
 
 .navbar .menu li {
     list-style: none;
-    display: inline-block;
+    display: inline-block; /* THIS KEEPS DESKTOP SIDE-BY-SIDE */
 }
 
 .navbar .menu li a {
@@ -77,40 +75,124 @@ body {
     font-weight: 500;
     margin-left: 25px;
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: 0.3s;
 }
 
-.navbar .menu li a:hover {
-    color: crimson;
-}
+.navbar .menu li a:hover { color: crimson; }
 
-/* Home Section */
-.home {
-    display: flex;
-    height: 100vh;
+/* Hide the button on Desktop */
+.menu-btn {
     color: #fff;
-    background: url('hero-bg.jpg') no-repeat center;
-    background-size: cover;
-    background-attachment: fixed;
+    font-size: 23px;
+    cursor: pointer;
+    display: none; 
 }
 
-.home .home-content .text-2 {
-    font-size: 75px;
-    font-weight: 600;
-    margin-left: -3px;
+/* --- MOBILE NAVIGATION RULES --- */
+@media (max-width: 947px) {
+    .menu-btn {
+        display: block !important; /* Shows only on mobile */
+        z-index: 10001;
+    }
+
+    /* Change menu to vertical overlay for mobile only */
+    .navbar .menu {
+        position: fixed;
+        height: 100vh;
+        width: 100%;
+        left: -100%; /* Hidden off-screen */
+        top: 0;
+        background: #111;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+        z-index: 10000;
+    }
+
+    .navbar .menu.active {
+        left: 0 !important; /* Slides in when JS triggers */
+    }
+
+    .navbar .menu li {
+        display: block;
+        margin: 15px 0;
+    }
+
+    .navbar .menu li a {
+        margin-left: 0;
+        font-size: 25px;
+    }
+    
+    .menu-btn i.active:before {
+        content: "\f00d"; /* Changes bars to X */
+    }
+}
+/* --- 3. HOME / HERO SECTION --- */
+.home-terminal {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    background: #050505;
 }
 
-.home .home-content .text-3 span {
-    color: crimson;
-    font-weight: 500;
+.terminal-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
 }
 
-/* About Section */
-/* PASTE THIS NEW INTERACTIVE ABOUT SECTION */
-.about-interactive {
-    padding: 100px 0;
-    background: #0a0a0a;
+.hero-info h1 {
+    font-size: 90px;
+    line-height: 0.9;
+    margin: 20px 0;
 }
+
+.hero-info h1 span { color: crimson; }
+
+.status-pill {
+    background: rgba(0, 255, 100, 0.1);
+    color: #00ff64;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 14px;
+    border: 1px solid rgba(0, 255, 100, 0.3);
+}
+
+.terminal-window {
+    width: 500px;
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.terminal-header {
+    background: #222;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px 10px 0 0;
+}
+
+.dots { display: flex; gap: 6px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.red { background: #ff5f56; }
+.yellow { background: #ffbd2e; }
+.green { background: #27c93f; }
+
+.terminal-body {
+    padding: 20px;
+    color: #00ff41;
+    font-size: 14px;
+    height: 300px;
+}
+
+/* --- 4. ABOUT & TABS --- */
+.about-interactive { background: #0a0a0a; }
 
 .about-container {
     display: flex;
@@ -118,149 +200,38 @@ body {
     align-items: flex-start;
 }
 
-/* Profile Card Styling */
 .about-card {
     flex: 1;
     background: rgba(255, 255, 255, 0.03);
     border: 1px solid rgba(220, 20, 60, 0.2);
     border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-}
-
-.about-card:hover {
-    transform: translateY(-10px);
-    border-color: crimson;
-    box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
-}
-/* skills sections */
-
-/* This centers the three boxes */
-.skills-container {
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    flex-wrap: wrap;
-    margin-top: 40px;
-}
-
-/* This styles the individual boxes */
-.skill-category {
-    flex: 1;
-    min-width: 300px;
-    background: rgba(255, 255, 255, 0.03);
-    padding: 30px;
-    border-radius: 15px;
+    padding: 20px;
     text-align: center;
-    border-bottom: 3px solid #222;
     transition: 0.3s;
-}
-
-.skill-category:hover {
-    border-color: crimson;
-    background: rgba(220, 20, 60, 0.05);
-}
-
-/* This is the magic part for the tags */
-.skill-tags {
-    display: flex;          /* This makes them horizontal */
-    flex-wrap: wrap;       /* This lets them wrap if they run out of space */
-    justify-content: center; 
-    gap: 10px;             /* Space between pills */
-    margin-top: 20px;
-}
-
-.skill-tags span {
-    display: inline-block;
-    background: rgba(220, 20, 60, 0.1);
-    border: 1px solid rgba(220, 20, 60, 0.3);
-    color: #fff;
-    padding: 6px 15px;
-    border-radius: 20px;
-    font-size: 14px;
-    transition: 0.3s;
-}
-
-.skill-tags span:hover {
-    background: crimson;
-    transform: translateY(-3px);
-}
-#skills {
-    /* Adjust '100px' to be slightly more than your navbar's height */
-    scroll-margin-top: 100px; 
-}
-
-/* If you want to fix it for all sections at once: */
-section {
-    scroll-margin-top: 90px;
-}
-/* Interaction: Glow effect on hover */
-.skill-tags span:hover {
-    background: crimson;
-    color: #fff;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
-    border-color: crimson;}
-
-/* Updated Profile Image Styling */
-.about-card {
-    flex: 1;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(220, 20, 60, 0.2);
-    border-radius: 15px;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    display: flex; /* Centers the content inside the card */
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px; /* Space above the photo */
 }
 
 .about-card img {
-    width: 200px; /* Adjust this number to make the photo smaller or larger */
-    height: 200px; /* Must match width for a perfect circle */
-    object-fit: cover; /* Prevents stretching */
-    border-radius: 50%; /* Makes the photo a circle */
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
     border: 3px solid crimson;
+    object-fit: cover;
     filter: grayscale(100%);
-    transition: 0.5s ease;
+    transition: 0.5s;
 }
 
-.about-card:hover img {
-    filter: grayscale(0%);
-    transform: scale(1.05); /* Slight zoom on hover */
-}
-.card-info {
-    padding: 20px;
-    text-align: center;
-}
+.about-card:hover { transform: translateY(-5px); border-color: crimson; }
+.about-card:hover img { filter: grayscale(0%); }
 
-.card-info h3 {
-    font-size: 25px;
-    color: #fff;
-}
-
-.card-info p {
-    color: crimson;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
 .social-row {
     margin-top: 15px;
     display: flex;
     justify-content: center;
     gap: 20px;
-    position: relative; 
-    z-index: 10; /* Ensures links stay on top of other elements */
 }
 
-.social-icon {
-    color: #fff;
-    font-size: 80px;
-    transition: 0.3s;
-    text-decoration: none;
-}
-
+.social-icon { color: #fff; font-size: 24px; transition: 0.3s; }
+.social-icon:hover { color: crimson; transform: translateY(-3px); }
 .social-icon:hover {
     color: crimson;
     transform: translateY(-3px);
@@ -295,16 +266,9 @@ section {
 .resume-btn i {
     font-size: 18px;
 }
-/* Tabs Styling */
-.about-tabs {
-    flex: 2;
-}
-
-.tab-btns {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 25px;
-}
+/* Tabs Logic */
+.about-tabs { flex: 2; }
+.tab-btns { display: flex; gap: 10px; margin-bottom: 25px; }
 
 .t-btn {
     padding: 12px 25px;
@@ -313,7 +277,6 @@ section {
     border: 1px solid #444;
     cursor: pointer;
     border-radius: 5px;
-    font-weight: 500;
     transition: 0.3s;
 }
 
@@ -331,45 +294,59 @@ section {
     animation: slideUp 0.4s ease forwards;
 }
 
-.tab-content.active {
-    display: block;
+.tab-content.active { display: block; }
+.tab-content h4 { color: crimson; font-size: 20px; margin-bottom: 5px; }
+
+.sub { font-size: 14px; color: #bbb; display: block; margin-bottom: 5px; }
+.sub span.year { color: crimson; margin-left: 10px; font-weight: 600; }
+.grade-text { font-size: 13px; color: #888; font-style: italic; margin-bottom: 15px; display: block; }
+
+/* --- 5. TECHNICAL SKILLS (ENGINE) --- */
+.skills-container {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    margin-top: 40px;
 }
 
-.tab-content h4 {
-    color: crimson;
-    font-size: 20px;
-    margin-bottom: 5px;
+.skill-category {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255, 255, 255, 0.03);
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    border-bottom: 3px solid #222;
+    transition: 0.3s;
 }
 
-/* Styling for University & Years */
-.sub {
+.skill-category:hover { border-color: crimson; background: rgba(220, 20, 60, 0.05); }
+
+.skill-tags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.skill-tags span {
+    background: rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    padding: 6px 15px;
+    border-radius: 20px;
     font-size: 14px;
-    color: #bbb; /* Lightened for better contrast */
-    display: block;
-    margin-bottom: 5px;
-    font-weight: 500;
+    transition: 0.3s;
 }
 
-/* New: Specifically styling the Year/Duration */
-.sub span.year {
-    color: crimson;
-    margin-left: 10px;
-    font-weight: 600;
-    opacity: 0.9;
+.skill-tags span:hover {
+    background: crimson;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
 }
 
-/* Styling for the CGPA text */
-.grade-text {
-    font-size: 13px;
-    color: #888;
-    display: block;
-    margin-bottom: 15px;
-    font-style: italic;
-}
-@keyframes slideUp {
-    from { opacity: 0; transform: translateY(15px); }
-    to { opacity: 1; transform: translateY(0); }
-}
+/* --- 6. PROJECTS SECTION --- */
 /* Projects Section Styling */
 .projects-modern {
     padding: 100px 0;
@@ -515,6 +492,7 @@ section {
     text-decoration: underline;
 }
 
+/* --- 7. CONTACT FORM --- */
 /* Contact Section Styling */
 .contact-modern {
     padding: 100px 0;
@@ -585,7 +563,23 @@ section {
     border: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 20px 40px rgba(0,0,0,0.3);
 }
+/* Ensure the contact form is visible and full-width */
+.contact-content .column {
+    width: 100%;
+    display: block;        /* Ensures it doesn't try to hide in a row */
+    margin-bottom: 40px;
+}
 
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.contact-form .field {
+    width: 100% !important; /* Forces inputs to take full width */
+    margin-bottom: 15px;
+}
 .form-group {
     margin-bottom: 20px;
 }
@@ -696,49 +690,32 @@ section {
     overflow-y: hidden;
     line-height: 1.6;
 }
-/* --- MOBILE RESPONSIVENESS --- */
+
+
+/* --- 8. ANIMATIONS & MEDIA QUERIES --- */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 991px) {
+    .max-width { padding: 0 30px; }
+}
+
 @media (max-width: 768px) {
-    /* 1. Make the Navbar text smaller */
-    .navbar .logo a {
-        font-size: 25px;
-    }
-
-    /* 2. Stack the About section (Image on top, Text below) */
-    .about-content {
+    .navbar .menu { display: none; } /* Consider adding hamburger menu later */
+    
+    .terminal-container, .about-container, .contact-container {
         flex-direction: column;
+        text-align: center;
     }
 
-    /* 3. Make Project Nodes full width instead of side-by-side */
-    .project-grid {
-        grid-template-columns: 100%;
-        padding: 0 20px;
-    }
+    .hero-info h1 { font-size: 50px; }
+    .terminal-window { width: 100%; }
 
-    /* 4. Fix the Tabs (Education/Experience) */
-    .tab-btns {
-        flex-wrap: wrap; /* Buttons will wrap to next line if needed */
-        justify-content: center;
-    }
-
-    .t-btn {
-        width: 100%; /* Full width buttons for easy thumb tapping */
-        margin-bottom: 10px;
-    }
-
-    /* 5. Adjust Section Padding */
-    section {
-        padding: 60px 20px;
-    }
-    /* Stack the Hero/About buttons vertically */
-.btns, .hero-btns, .cv-btns {
-    display: flex;
-    flex-direction: column; /* Stacks them */
-    gap: 15px;             /* Adds space between them */
-    align-items: center;
+    .about-card, .about-tabs { width: 100%; }
+    .tab-btns { flex-direction: column; }
+    .t-btn { width: 100%; }
 }
 
-.t-btn, .btn-link {
-    width: 80%;            /* Makes buttons wider and easier to tap */
-    text-align: center;
-}
-}
+/* last add */
