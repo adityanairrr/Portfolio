@@ -300,74 +300,102 @@ img {
 .sub { font-size: 14px; color: #bbb; display: block; margin-bottom: 5px; }
 .sub span.year { color: crimson; margin-left: 10px; font-weight: 600; }
 .grade-text { font-size: 13px; color: #888; font-style: italic; margin-bottom: 15px; display: block; }
-
-/* --- CERTIFICATIONS SECTION --- */
+/* ==========================================================================
+   CERTIFICATIONS SECTION (Matches Technical Skills Styling Exactly)
+   ========================================================================== */
 .certifications {
-    background: #111;
+    background: #111; /* Keeps the uniform section background */
     padding: 60px 0;
 }
 
 .cert-content {
     display: flex;
     justify-content: center;
+    gap: 25px;
+    flex-wrap: wrap;
     margin-top: 40px;
 }
 
+/* Inherits the exact styling of your skill-category cards */
 .cert-card {
-    background: #222;
-    border: 1px solid rgba(220, 20, 60, 0.2);
-    border-radius: 10px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px; /* Prevents cards from over-stretching on wide monitors */
+    background: rgba(255, 255, 255, 0.03); /* Exact matching card tint */
     padding: 30px;
+    border-radius: 15px; /* Matches skills corners */
+    text-align: center;  /* Centers text, icons, and buttons smoothly */
+    border-bottom: 3px solid #222; /* Matches skills bottom border base */
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 25px;
-    max-width: 600px;
-    width: 100%;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    justify-content: space-between;
+    gap: 15px;
+    transition: 0.3s;
 }
 
-.cert-card:hover {
-    transform: translateY(-5px);
-    border-color: crimson;
-    box-shadow: 0 10px 25px rgba(220, 20, 60, 0.15);
+/* Exact duplicate of your skills card hover engine */
+.cert-card:hover { 
+    border-color: crimson; 
+    background: rgba(220, 20, 60, 0.05); 
 }
 
+/* Inner elements designed to inherit your global body typography */
 .cert-icon i {
-    font-size: 50px;
+    font-size: 40px;
     color: crimson;
-}
-
-.cert-details h3 {
-    font-size: 22px;
-    color: #fff;
     margin-bottom: 5px;
 }
 
+.cert-details h3 {
+    font-size: 20px;
+    color: #fff;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
 .cert-details .issuer {
-    color: #ddd;
-    font-size: 16px;
-    margin-bottom: 10px;
+    color: #ccc;
+    font-size: 15px;
+    margin-bottom: 8px;
+    line-height: 1.4;
 }
 
 .cert-details .cert-date {
-    color: #888;
-    font-size: 14px;
+    color: #777;
+    font-size: 13px;
     margin-bottom: 15px;
 }
 
+/* Button style modeled after your interactive skill tags */
 .verify-btn {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    color: crimson;
-    text-decoration: none;
-    font-weight: 500;
+    background: rgba(220, 20, 60, 0.1);
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    padding: 8px 20px;
+    border-radius: 20px;
     font-size: 14px;
-    transition: color 0.3s;
+    color: #fff;
+    text-decoration: none;
+    transition: 0.3s;
 }
 
 .verify-btn:hover {
+    background: crimson;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(220, 20, 60, 0.4);
     color: #fff;
+}
+
+/* Responsive adjustment for single-column mobile views */
+@media (max-width: 768px) {
+    .cert-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+    }
 }
 
 /* Mobile responsive tweak */
